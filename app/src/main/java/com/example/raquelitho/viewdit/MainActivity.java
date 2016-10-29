@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT< Build.VERSION_CODES.M){
             return true;
         }
-        return false;
+        return true;
     }
 
     private void showOptions(){
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which){
                 if(option[which]=="Elegir de galeria"){
-                    Intent intent= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intent.setType("images/*");
+                    Intent intent= new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    intent.setType("image/*");
                     startActivityForResult(intent.createChooser(intent,"Selecciona la imagen"),SELECT_PICTURE);
                 }else {
                     dialog.dismiss();
